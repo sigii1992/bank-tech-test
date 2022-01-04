@@ -13,7 +13,7 @@ describe BankAccount do
     expect(account.transactions_history).to eq([])
   end
 
-  it 'adds transaction to the history log when deposit or withdrawal is made' do
+  it 'adds transaction to the transactions history log when deposit or withdrawal is made' do
     account.deposit(transaction_deposit.credit)
     account.deposit(transaction_deposit.credit)
     account.withdraw(transaction_withdraw.debit)
