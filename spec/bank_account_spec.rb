@@ -2,9 +2,15 @@ require './lib/bank_account.rb'
 
 describe BankAccount do
   subject(:account) { BankAccount.new }
+  let(:transaction_deposit) { double :transaction_d, date => "04/01/2022", credit => 100, acc_balance => account.balance + 100 }
+  let(:transaction_withdraw) { double :transaction_w, date => "01/01/2022", debit => 10, acc_balance => account.balance - 10 }
 
   it 'has a balance of 0.00 than an account is created' do
     expect(account.balance).to eq(0.00)
+  end
+
+  it 'has an empty transactions history log when account is created' do
+    expect(account.transactions_history).to eq([])
   end
 
   describe '#deposit' do 

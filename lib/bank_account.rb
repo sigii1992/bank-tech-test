@@ -1,8 +1,11 @@
+require './lib/transaction.rb'
+
 class BankAccount
-  attr_reader :balance
+  attr_reader :balance, :transactions_history
 
   def initialize 
     @balance = 0.00
+    @transactions_history = []
   end
 
   def deposit(amount)
