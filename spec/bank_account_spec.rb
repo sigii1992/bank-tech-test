@@ -13,6 +13,14 @@ describe BankAccount do
       account.deposit(200)
       expect(account.balance).to eq(1200)
     end
+
+    it 'raises an error if trying to deposit £0 to the balance' do
+      expect { account.deposit(0) }.to raise_error('You have added 0 money to your account, please enter another amount if needed.')
+    end
+
+    it 'raises an error if trying to deposit not a number' do
+      expect { account.deposit('abc') }.to raise_error('Please enter a valid positive number!')
+    end
   end
 
   describe '#withdraw' do
@@ -33,6 +41,11 @@ describe BankAccount do
     it 'raises an error if trying to withdraw any other number than multiples by 10' do
       account.deposit(1000)
       expect { account.withdraw(99.99) }.to raise_error('You can only withdraw an amount which is multiple by 10.')
+    end
+
+    it 'raises an error if trying to withdraw not a number' do
+      account.deposit(1000)
+      expect { account.withdraw('abc') }.to raise_error('Please enter a valid positive number!')
     end
   end
 end
