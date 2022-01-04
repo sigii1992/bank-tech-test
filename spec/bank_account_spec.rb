@@ -15,11 +15,24 @@ describe BankAccount do
     end
   end
 
-  describe '#withdrawal' do
+  describe '#withdraw' do
     it 'withdraws money from the balance' do
       account.deposit(1000)
       account.withdraw(200)
       expect(account.balance).to eq(800)
+    end
+
+    it 'raises an error if there is not enough money in the account' do
+      expect { account.withdraw(10) }.to raise_error('Oops! Can not withdraw! There is not enough money in your account..')
+    end
+
+    it 'raises an error if trying to withdraw £0 from the balance' do
+      expect { account.withdraw(0) }.to raise_error('Can not withdraw 0 money, please enter another amount.')
+    end
+
+    it 'raises an error if trying to withdraw any other number than multiples by 10' do
+      account.deposit(1000)
+      expect { account.withdraw(99.99) }.to raise_error('You can only withdraw an amount which is multiple by 10.')
     end
   end
 end
