@@ -1,7 +1,7 @@
 class Statement
   def self.print_statement(account_transactions_history)
     puts 'date || credit || debit || balance'
-    bank_account.reverse_each do |transaction| 
+    account_transactions_history.reverse_each do |transaction| 
     puts "#{transaction.date} || #{formatted_number(transaction.credit)} || #{formatted_number(transaction.debit)}|| #{formatted_number(transaction.acc_balance)}"
     end
   end
