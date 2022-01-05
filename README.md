@@ -7,7 +7,7 @@ The application works via IRB and the data is kept in memory(no database).
 ### Edge cases:
 
 - User can only enter positive number.
-- User can not deposit or withdraw O amount of money.
+- User can not deposit or withdraw 0 amount of money.
 - User can not withdraw if there is not enough money in their account.
 - User can only withdraw an amount which is multiple by 10.
 
