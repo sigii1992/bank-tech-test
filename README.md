@@ -11,6 +11,18 @@ The application works via IRB and the data is kept in memory(no database).
 - User can not withdraw if there is not enough money in their account.
 - User can only withdraw an amount which is multiple by 10.
 
+## Code structure:
+
+I tried to keep my code as small as possible and tried to follow the Single Responsibility Principle for readability.
+
+I used 3 classes:
+
+- `BankAccount` which handling `deposit and withdraw` methods and stores `balance and transactions history`.
+- `Transaction` which stores data of a single transaction, such as `date, credit, debit and account balance`.
+- `Statement` which prints(`print_statement`) bank account statement with the newest transaction being printed at the top.
+
+Also, I used TDD to reduce the number of bugs and improve my code quality.
+
 ## Technologies used:
 
 - Ruby 3.0.2
