@@ -14,7 +14,6 @@ class BankAccount
     raise 'You have added 0 money to your account, please enter another amount if needed.' if invalid_amount?(amount)
 
     @transactions_history << Transaction.new(amount, '', @balance + amount)
-    
     @balance += amount 
   end
 
@@ -25,12 +24,10 @@ class BankAccount
     raise 'You can only withdraw an amount which is multiple by 10.' unless amount % 10 == 0
    
     @transactions_history << Transaction.new('', amount,  @balance - amount)
-
     @balance -= amount
   end
 
   private 
-
   def invalid_amount?(amount)
     amount == 0
   end
