@@ -2,6 +2,8 @@ require './lib/bank_account.rb'
 
 describe BankAccount do
   subject(:account) { BankAccount.new }
+  let(:new_account) { double :new_account, :transactions_history => []} 
+  let(:account1) { double :account1, :transactions_history => [transaction_deposit, transaction_withdraw]}
   let(:transaction_deposit) { double :transaction_deposit, :date => "04/01/2022", :credit => 100, :debit => '', :acc_balance => account.balance + 100 }
   let(:transaction_withdraw) { double :transaction_withdraw, :date => "05/01/2022", :credit => '', :debit => 10, :acc_balance => account.balance - 10 }
 
@@ -10,14 +12,13 @@ describe BankAccount do
   end
 
   it 'has an empty transactions history log when account is created' do
-    expect(account.transactions_history).to eq([])
+    expect(new_account.transactions_history).to eq([])
   end
 
   it 'adds transaction to the transactions history log when deposit or withdrawal is made' do
     account.deposit(transaction_deposit.credit)
-    account.deposit(transaction_deposit.credit)
     account.withdraw(transaction_withdraw.debit)
-    expect(account.transactions_history.length).to eq 3
+    expect(account1.transactions_history.length).to eq 2
   end
 
   describe '#deposit' do 
@@ -61,4 +62,12 @@ describe BankAccount do
       expect { account.withdraw('abc') }.to raise_error('Please enter a valid positive number!')
     end
   end
+
+  describe '#print_statement' do
+  it 'prints account statement' do
+    account.deposit(transaction_deposit.credit)
+    account.withdraw(transaction_withdraw.debit)
+    expect(account.print_statement.length).to eq(2)
+  end
+end
 end
