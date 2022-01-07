@@ -2,7 +2,7 @@ class Statement
   def format_statement(statement_history)
     header
     statement_history.reverse_each do |transaction| 
-    puts "#{transaction.date} || #{formatted_number(transaction.credit)} || #{formatted_number(transaction.debit)}|| #{formatted_number(transaction.acc_balance)}"
+    puts "#{transaction.date} || #{formatted_number(transaction.credit)} ||#{formatted_number(transaction.debit)} || #{formatted_number(transaction.acc_balance)}"
     end
   end
   
