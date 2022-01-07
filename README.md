@@ -1,6 +1,6 @@
 # Bank Account
 
-This is a simple program which allows a user to create a new bank account, deposit and withdraw money. Also, a user can print transactions history statement which is printed with the newest transaction first. The user's balance and banking transactions are stored and can be viewed within the application.
+This is a simple program which allows a user to create a new bank account, deposit and withdraw money. Also, a user can print transactions history statement which is printed with the newest transaction first. The user's balance is stored and can be viewed within the application.
 
 The application works via IRB and the data is kept in memory(no database).
 
@@ -17,9 +17,9 @@ I tried to keep my code as small as possible and tried to follow the Single Resp
 
 I used 3 classes:
 
-- `BankAccount` which handling `deposit and withdraw` methods and stores `balance and transactions history`.
+- `BankAccount` which handling `deposit, withdraw and print_statement` methods and stores `balance and transactions history`.
 - `Transaction` which stores data of a single transaction, such as `date, credit, debit and account balance`.
-- `Statement` which prints(`print_statement`) bank account statement with the newest transaction being printed at the top.
+- `Statement` which formats(`format_statement`) bank account statement with the newest transaction being printed at the top.
 
 Also, I used TDD to reduce the number of bugs and improve my code quality.
 
@@ -45,11 +45,11 @@ rspec
 5. Run `require './lib/bank_account.rb`
 6. See example bellow of how you can use the program:
 
-<img width="717" alt="Screenshot 2022-01-05 at 11 15 11" src="https://user-images.githubusercontent.com/81166702/148213363-109033de-3208-4e77-a934-fee2d3d4af19.png">
+<img width="852" alt="Screenshot 2022-01-07 at 15 44 19" src="https://user-images.githubusercontent.com/81166702/148568679-b4692486-0f5f-46e4-975d-55ab5eceaa95.png">
 
 ## Test coverage:
 
-<img width="1440" alt="Screenshot 2022-01-05 at 11 07 55" src="https://user-images.githubusercontent.com/81166702/148214190-3484fea4-b572-447b-affc-e01aa303e01f.png">
+<img width="1440" alt="Screenshot 2022-01-07 at 15 41 48" src="https://user-images.githubusercontent.com/81166702/148568759-4864cffd-b43a-40e5-8f7e-25826d8ed6b0.png">
 
 ## Acceptance criteria
 
