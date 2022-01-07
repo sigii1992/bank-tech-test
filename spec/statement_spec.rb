@@ -7,7 +7,7 @@ describe Statement do
   describe '#print_statement' do
     it 'prints the full bank statement in reverse order' do 
       bank_statement = [transaction_deposit1, transaction_deposit2]
-      expect { Statement.print_statement(bank_statement) }.to output("date || credit || debit || balance\n" + "05/01/2022 || 500.00 || || 600.00\n" +
+      expect { Statement.new.format_statement(bank_statement) }.to output("date || credit || debit || balance\n" + "05/01/2022 || 500.00 || || 600.00\n" +
       "04/01/2022 || 100.00 || || 100.00\n").to_stdout
     end
   end
